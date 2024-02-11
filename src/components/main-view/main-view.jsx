@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react";
-import { MovieCard } from "../movie-card/movie-card";
-import { MovieView } from "../movie-view/movie-view";
-import { LoginView } from "../login-view/login-view";
-import { SignUpView } from "../signup-view/signup-view";
+import { useState, useEffect } from 'react';
+import { MovieCard } from '../movie-card/movie-card';
+import { MovieView } from '../movie-view/movie-view';
+import { LoginView } from '../login-view/login-view';
+import { SignUpView } from '../signup-view/signup-view';
 
 export const MainView = () => {
-  const storedUser = JSON.parse(localStorage.getItem("user"));
-  const storedToken = localStorage.getItem("token");
-  const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  const storedUser = JSON.parse(localStorage.getItem('user'));
+  const storedToken = localStorage.getItem('token');
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
+  const [movies, setMovies] = useState([]);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     if (!token) {
       return;
     }
 
-    fetch("https://sports-movies-b0988f99dc86.herokuapp.com/movies", {
-      headers: { Authorization: "Bearer ${token}" },
+    fetch('https://sports-movies-b0988f99dc86.herokuapp.com/movies', {
+      headers: { Authorization: 'Bearer ${token}' },
     })
       .then((response) => response.json())
       .then((data) => {
@@ -82,7 +82,7 @@ export const MainView = () => {
         >
           Logout
         </button>
-        <div>The list is empty!</div>;
+        <div>The list is empty!</div>
       </>
     );
   }

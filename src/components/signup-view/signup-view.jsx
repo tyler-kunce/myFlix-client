@@ -4,7 +4,7 @@ export const SignUpView = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const { birthdate, setBirthdate } = useState("");
+  const [birthdate, setBirthdate] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,7 +13,7 @@ export const SignUpView = () => {
       Username: username,
       Password: password,
       Email: email,
-      Birthdate: birthday,
+      Birthdate: birthdate,
     };
 
     fetch("https://sports-movies-b0988f99dc86.herokuapp.com/users", {
