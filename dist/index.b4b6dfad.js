@@ -27472,7 +27472,7 @@ const MovieCard = ({ movie, user, token, setUser })=>{
         user
     ]);
     const addFavMovie = ()=>{
-        fetch(`https://sports-movies-b0988f99dc86.herokuapp.com/users/${user.name}/${movie._id}`, {
+        fetch(`https://sports-movies-b0988f99dc86.herokuapp.com/users/${user.Username}/movies/${movie._id}`, {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -27492,7 +27492,7 @@ const MovieCard = ({ movie, user, token, setUser })=>{
         });
     };
     const delFavMovie = ()=>{
-        fetch(`https://sports-movies-b0988f99dc86.herokuapp.com/users/${user.name}/movies/${movie._id}`, {
+        fetch(`https://sports-movies-b0988f99dc86.herokuapp.com/users/${user.Username}/movies/${movie._id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -27566,7 +27566,7 @@ const MovieCard = ({ movie, user, token, setUser })=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
-                children: favorite ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                children: !favorite ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                     onClick: addFavMovie,
                     children: "Add?"
                 }, void 0, false, {

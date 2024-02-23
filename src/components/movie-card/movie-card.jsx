@@ -14,7 +14,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
 
   const addFavMovie = () => {
     fetch(
-      `https://sports-movies-b0988f99dc86.herokuapp.com/users/${user.name}/${movie._id}`,
+      `https://sports-movies-b0988f99dc86.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
       { method: 'POST', headers: { Authorization: `Bearer ${token}` } }
     )
       .then((response) => {
@@ -39,7 +39,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
 
   const delFavMovie = () => {
     fetch(
-      `https://sports-movies-b0988f99dc86.herokuapp.com/users/${user.name}/movies/${movie._id}`,
+      `https://sports-movies-b0988f99dc86.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
       { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } }
     )
       .then((response) => {
@@ -75,7 +75,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
         </Link>
       </Card.Body>
       <Card.Body>
-        {favorite ? (
+        {!favorite ? (
           <Button onClick={addFavMovie}>Add?</Button>
         ) : (
           <Button onClick={delFavMovie}>Remove?</Button>
