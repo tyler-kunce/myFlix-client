@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card } from 'react-bootstrap';
+import { Row, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export const MovieCard = ({ movie, user, token, setUser }) => {
@@ -14,7 +14,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
 
   const addFavMovie = () => {
     fetch(
-      `https://sports-movies-b0988f99dc86.herokuapp.com/users/${user.Username}/${movie._id}`,
+      `https://sports-movies-b0988f99dc86.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
       { method: 'POST', headers: { Authorization: `Bearer ${token}` } }
     )
       .then((response) => {

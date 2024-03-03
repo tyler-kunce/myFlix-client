@@ -42087,7 +42087,7 @@ const NavigationBar = ({ user, onLoggedOut })=>{
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
                                     as: (0, _reactRouterDom.Link),
-                                    to: "/movies",
+                                    to: "/",
                                     children: "Home"
                                 }, void 0, false, {
                                     fileName: "src/components/navigation-view/navigation-view.jsx",
