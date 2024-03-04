@@ -15,7 +15,12 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
   const addFavMovie = () => {
     fetch(
       `https://sports-movies-b0988f99dc86.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
-      { method: 'POST', headers: { Authorization: `Bearer ${token}` } }
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
     )
       .then((response) => {
         if (response.ok) {
@@ -40,7 +45,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
   const delFavMovie = () => {
     fetch(
       `https://sports-movies-b0988f99dc86.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
-      { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } }
+      { method: 'PUT', headers: { Authorization: `Bearer ${token}` } }
     )
       .then((response) => {
         if (response.ok) {

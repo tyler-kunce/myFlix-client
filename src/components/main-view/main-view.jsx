@@ -22,7 +22,9 @@ export const MainView = () => {
     }
 
     fetch('https://sports-movies-b0988f99dc86.herokuapp.com/movies', {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     })
       .then((response) => response.json())
       .then((data) => {
