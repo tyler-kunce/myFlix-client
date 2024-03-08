@@ -45,7 +45,7 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
   const delFavMovie = () => {
     fetch(
       `https://sports-movies-b0988f99dc86.herokuapp.com/users/${user.Username}/movies/${movie._id}`,
-      { method: 'PUT', headers: { Authorization: `Bearer ${token}` } }
+      { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } }
     )
       .then((response) => {
         if (response.ok) {

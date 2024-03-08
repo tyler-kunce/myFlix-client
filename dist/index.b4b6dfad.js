@@ -27493,7 +27493,7 @@ const MovieCard = ({ movie, user, token, setUser })=>{
     };
     const delFavMovie = ()=>{
         fetch(`https://sports-movies-b0988f99dc86.herokuapp.com/users/${user.Username}/movies/${movie._id}`, {
-            method: "PUT",
+            method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`
             }
