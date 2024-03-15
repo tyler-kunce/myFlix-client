@@ -117,6 +117,8 @@ export const MainView = () => {
                       <input
                         type="text"
                         onChange={(m) => setSearch(m.target.value)}
+                        placeholder="Search for a movie!"
+                        className="searchBar"
                       />
                     </Col>
                     {movies
