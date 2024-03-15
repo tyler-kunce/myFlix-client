@@ -113,31 +113,17 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <>
-                    <Col>
-                      <input
-                        type="text"
-                        onChange={(m) => setSearch(m.target.value)}
-                        placeholder="Search for a movie!"
-                        className="searchBar"
-                      />
-                    </Col>
-                    {movies
-                      .filter((movie) => {
-                        return search.toLowerCase() === ''
-                          ? movie
-                          : movie.title.toLowerCase().includes(search);
-                      })
-                      .map((movie) => (
-                        <Col md={5} className="mb-5 col-8" key={movie.id}>
-                          <MovieCard
-                            key={movie.id}
-                            movie={movie}
-                            user={user}
-                            token={token}
-                            setUser={setUser}
-                          />
-                        </Col>
-                      ))}
+                    {movies.map((movie) => (
+                      <Col md={5} className="mb-5 col-8" key={movie.id}>
+                        <MovieCard
+                          key={movie.id}
+                          movie={movie}
+                          user={user}
+                          token={token}
+                          setUser={setUser}
+                        />
+                      </Col>
+                    ))}
                   </>
                 )}
               </>

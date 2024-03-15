@@ -27298,29 +27298,17 @@ const MainView = ()=>{
                                 }, void 0, false, void 0, void 0) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                     children: "The list is empty!"
                                 }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                                type: "text",
-                                                onChange: (m)=>setSearch(m.target.value),
-                                                placeholder: "Search for a movie!",
-                                                className: "searchBar"
-                                            }, void 0, false, void 0, void 0)
-                                        }, void 0, false, void 0, void 0),
-                                        movies.filter((movie)=>{
-                                            return search.toLowerCase() === "" ? movie : movie.title.toLowerCase().includes(search);
-                                        }).map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                                                md: 5,
-                                                className: "mb-5 col-8",
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                                                    movie: movie,
-                                                    user: user,
-                                                    token: token,
-                                                    setUser: setUser
-                                                }, movie.id, false, void 0, void 0)
-                                            }, movie.id, false, void 0, void 0))
-                                    ]
-                                }, void 0, true)
+                                    children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                                            md: 5,
+                                            className: "mb-5 col-8",
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                                                movie: movie,
+                                                user: user,
+                                                token: token,
+                                                setUser: setUser
+                                            }, movie.id, false, void 0, void 0)
+                                        }, movie.id, false, void 0, void 0))
+                                }, void 0, false)
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
@@ -27352,7 +27340,7 @@ const MainView = ()=>{
                             }, void 0, false)
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 147,
+                            lineNumber: 133,
                             columnNumber: 11
                         }, undefined)
                     ]
