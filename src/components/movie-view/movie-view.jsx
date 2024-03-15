@@ -1,8 +1,12 @@
 import { useParams } from 'react-router';
 import { Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
-export const MovieView = ({ movies }) => {
+export const MovieView = () => {
+  const movies = useSelector((state) => state.movies.data);
+  const dispatch = useDispatch();
+
   const { movieId } = useParams();
   const movie = movies.find((movie) => movie._id === movieId);
 

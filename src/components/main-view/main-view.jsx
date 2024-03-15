@@ -8,13 +8,17 @@ import { NavigationBar } from '../navigation-view/navigation-view';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { BrowserRouter, Routes, Navigate, Route } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setBooks } from '../../redux/reducers/movies';
 
 export const MainView = () => {
   const storedUser = JSON.parse(localStorage.getItem('user'));
   const storedToken = localStorage.getItem('token');
-  const [user, setUser] = useState(storedUser ? storedUser : null);
-  const [token, setToken] = useState(storedToken ? storedToken : null);
-  const [movies, setMovies] = useState([]);
+  const user = useSelector((state) => state.user.userData);
+  const token = useSelector((state) => state.user.token);
+  const movies = useSelector((state) => state.movies.data);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!token) {
@@ -39,19 +43,13 @@ export const MainView = () => {
           };
         });
 
-        setMovies(moviesFromApi);
+        dispatch(setMovies(moviesFromApi));
       });
   }, [token]);
 
   return (
     <BrowserRouter>
-      <NavigationBar
-        user={user}
-        onLoggedOut={() => {
-          setUser(null);
-          localStorage.clear();
-        }}
-      />
+      <NavigationBar />
       <Row className="justify-content-md-center">
         <Routes>
           <Route
@@ -76,12 +74,7 @@ export const MainView = () => {
                   <Navigate to="/" />
                 ) : (
                   <Col md={5}>
-                    <LoginView
-                      onLoggedIn={(user, token) => {
-                        setUser(user);
-                        setToken(token);
-                      }}
-                    />
+                    <LoginView />
                   </Col>
                 )}
               </>
@@ -97,7 +90,7 @@ export const MainView = () => {
                   <Col>The list is empty!</Col>
                 ) : (
                   <Col md={8}>
-                    <MovieView movies={movies} />
+                    <MovieView />
                   </Col>
                 )}
               </>
@@ -115,13 +108,7 @@ export const MainView = () => {
                   <>
                     {movies.map((movie) => (
                       <Col md={5} className="mb-5 col-8" key={movie.id}>
-                        <MovieCard
-                          key={movie.id}
-                          movie={movie}
-                          user={user}
-                          token={token}
-                          setUser={setUser}
-                        />
+                        <MoviesList />
                       </Col>
                     ))}
                   </>
