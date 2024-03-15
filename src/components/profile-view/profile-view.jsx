@@ -129,11 +129,11 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
                     onChange={(e) => setBirthdate(e.target.value)}
                   />
                 </Form.Group>
-                <Button variant="primary" type="submit" onClick={handleUpdate}>
+                <Button variant="success" type="submit" onClick={handleUpdate}>
                   Submit Updates!
                 </Button>
                 <Link to="/login">
-                  <Button variant="primary" onClick={deregAccount}>
+                  <Button variant="danger" onClick={deregAccount}>
                     De-Register Your Account
                   </Button>
                 </Link>

@@ -81,9 +81,13 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
       </Card.Body>
       <Card.Body>
         {!favorite ? (
-          <Button onClick={addFavMovie}>Add?</Button>
+          <Button onClick={addFavMovie} variant="success">
+            Add?
+          </Button>
         ) : (
-          <Button onClick={delFavMovie}>Remove?</Button>
+          <Button onClick={delFavMovie} variant="danger">
+            Remove?
+          </Button>
         )}
       </Card.Body>
     </Card>
