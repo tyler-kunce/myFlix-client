@@ -5,7 +5,7 @@ import { LoginView } from '../login-view/login-view';
 import { SignUpView } from '../signup-view/signup-view';
 import { ProfileView } from '../profile-view/profile-view';
 import { NavigationBar } from '../navigation-view/navigation-view';
-import { Form, InputGroup } from 'react-bootstrap';
+import { Container, Form, InputGroup } from 'react-bootstrap';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { BrowserRouter, Routes, Navigate, Route } from 'react-router-dom';
@@ -16,6 +16,7 @@ export const MainView = () => {
   const [user, setUser] = useState(storedUser ? storedUser : null);
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     if (!token) {
@@ -128,7 +129,7 @@ export const MainView = () => {
                         .filter((movie) => {
                           return search.toLowerCase() === ''
                             ? movie
-                            : movie.title.toLowerCase().includes(search);
+                            : movie.Title.toLowerCase().includes(search);
                         })
                         .map((movie) => (
                           <Col md={5} className="mb-5 col-8" key={movie.id}>
