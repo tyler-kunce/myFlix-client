@@ -4,12 +4,12 @@ import { Row, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export const MovieCard = ({ movie, user, token, setUser }) => {
-  const [favorite, setFavorite] = useState(false);
+  const [favorite, setFavorite] = useState(
+    user && user.favoriteMovies.includes(movie._id)
+  );
 
   useEffect(() => {
-    if (user.FavoriteMovies && user.FavoriteMovies.includes(movie._id)) {
-      setFavorite(true);
-    }
+    setFavorite(user && user.FavoriteMovies.includes(movie._id));
   }, [user]);
 
   const addFavMovie = () => {
