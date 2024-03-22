@@ -4,6 +4,8 @@ import { Row, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export const MovieCard = ({ movie, user, token, setUser }) => {
+  const storedToken = localStorage.getItem('token');
+  const storedUser = JSON.parse(localStorage.getItem('user'));
   const [favorite, setFavorite] = useState(false);
 
   useEffect(() => {
@@ -81,9 +83,13 @@ export const MovieCard = ({ movie, user, token, setUser }) => {
       </Card.Body>
       <Card.Body>
         {!favorite ? (
-          <Button onClick={addFavMovie}>Add?</Button>
+          <Button variant="success" onClick={addFavMovie}>
+            Add?
+          </Button>
         ) : (
-          <Button onClick={delFavMovie}>Remove?</Button>
+          <Button variant="danger" onClick={delFavMovie}>
+            Remove?
+          </Button>
         )}
       </Card.Body>
     </Card>

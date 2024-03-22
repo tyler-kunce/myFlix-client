@@ -133,7 +133,7 @@ export const ProfileView = ({ user, token, movies, setUser }) => {
                   Submit Updates!
                 </Button>
                 <Link to="/login">
-                  <Button variant="primary" onClick={deregAccount}>
+                  <Button variant="danger" onClick={deregAccount}>
                     De-Register Your Account
                   </Button>
                 </Link>
