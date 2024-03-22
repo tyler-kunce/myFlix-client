@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { Row, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-export const MovieCard = ({ movie, user, token, setUser }) => {
+export const MovieCard = ({ movie }) => {
   const storedToken = localStorage.getItem('token');
   const storedUser = JSON.parse(localStorage.getItem('user'));
+  const [user, setUser] = useState(storedUser ? storedUser : null);
+  const [token, setToken] = useState(storedToken ? storedToken : null);
   const [favorite, setFavorite] = useState(false);
 
   useEffect(() => {
